@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mdb.min.css">
+    <script src="app.js" defer></script>
+    <script src="mdb.min.js" defer></script>
+
+    <title>Cash Calculator</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <header>
+            <h1 class="text-center"><strong>Cash Calculator</strong></h1>
+            <hr>
+            <h3 class="text-center"><strong>Result:</strong> $<span id="result">0.00</span></h3>
+        </header>
+
+        <main>
+
+            <form>
+
+                <div class="mb-3 mx-5">
+                    <label class="form-label text-muted" for="hundred">Hundreds:</label>
+                    <input class="form-control" id="hundred" name="hundred" type="number" value="0" min="0" step="1">
+                </div>
+
+                <div class="mb-3 mx-5">
+                    <label class="form-label text-muted" for="fifty">Fifties:</label>
+                    <input class="form-control" id="fifty" name="fifty" type="number" value="0" min="0" step="1">
+                </div>
+
+                <div class="mb-3 mx-5">
+                    <label class="form-label text-muted" for="twenty">Twenties:</label>
+                    <input id="twenty" class="form-control" name="twenty" type="number" value="0" min="0" step="1">
+                </div>
+
+                <div class="mb-3 mx-5">
+                    <label class="form-label text-muted" for="ten">Tens:</label>
+                    <input id="ten" class="form-control" name="ten" type="number" value="0" min="0" step="1">
+                </div>
+
+                <div class="mb-3 mx-5">
+                    <label class="form-label text-muted" for="five">Fives:</label>
+                    <input id="five" class="form-control" name="five" type="number" value="0" min="0" step="1">
+                </div>
+
+                <div class="mb-3 mx-5">
+                    <label class="form-label text-muted" for="toonie">Toonies:</label>
+                    <input id="toonie" class="form-control" name="toonie" type="number" value="0" min="0" step="1">
+                </div>
+
+                <div class="mb-3 mx-5">
+                    <label class="form-label text-muted" for="loonie">Loonies:</label>
+                    <input id="loonie" class="form-control" name="loonie" type="number" value="0" min="0" step="1">
+                </div>
+
+                <div class="mb-3 mx-5">
+                    <label class="form-label text-muted" for="quarter">Quarters:</label>
+                    <input id="quarter" class="form-control" name="quarter" type="number" value="0" min="0" step="1">
+                </div>
+
+                <div class="mb-3 mx-5">
+                    <label class="form-label text-muted" for="dime">Dimes:</label>
+                    <input id="dime" class="form-control" name="dime" type="number" value="0" min="0" step="1">
+                </div>
+
+                <div class="mb-3 mx-5">
+                    <label class="form-label text-muted" for="nickel">Nickels:</label>
+                    <input id="nickel" class="form-control" name="nickel" type="number" value="0" min="0" step="1">
+                </div>
+
+                <div class="mb-3 pt-3 mx-5">
+                    <button class="btn btn-dark btn-block" id="reset">Reset</button>
+                </div>
+            </form>
+        </main>
+
+    </div>
+</body>
+
+</html>
