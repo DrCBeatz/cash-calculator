@@ -16,70 +16,83 @@
 <body>
     <div class="container">
 
-        <header>
-            <h1 class="text-center"><strong>Cash Calculator</strong></h1>
+        <!-- Header -->
+        <header class="mx-4 mx-lg-5">
+            <h1 class="text-center mt-3"><strong>Cash Calculator</strong></h1>
             <hr>
             <h3 class="text-center"><strong>Result:</strong> $<span id="result">0.00</span></h3>
         </header>
 
+        <!-- Main -->
         <main>
 
-            <form>
-
-                <div class="mb-3 mx-5">
-                    <label class="form-label text-muted" for="hundred">Hundreds:</label>
-                    <input class="form-control" id="hundred" name="hundred" type="number" value="0" min="0" step="1">
+            <!-- Form -->
+            <form class="mx-4 mx-lg-5">
+                <!-- Hundred input -->
+                <div class="form-outline mb-4">
+                  <input type="number" id="hundred" class="form-control" min="0" step="1"/>
+                  <label class="form-label" for="hundred">Hundreds</label>
+                </div>
+              
+                <!-- Fifty input -->
+                <div class="form-outline mb-4">
+                  <input type="number" id="fifty" class="form-control" min="0" step="1"/>
+                  <label class="form-label" for="fifty">Fifties</label>
                 </div>
 
-                <div class="mb-3 mx-5">
-                    <label class="form-label text-muted" for="fifty">Fifties:</label>
-                    <input class="form-control" id="fifty" name="fifty" type="number" value="0" min="0" step="1">
+                <!-- Twenty input -->
+                <div class="form-outline mb-4">
+                    <input type="number" id="twenty" class="form-control" min="0" step="1"/>
+                    <label class="form-label" for="twenty">Twenties</label>
                 </div>
 
-                <div class="mb-3 mx-5">
-                    <label class="form-label text-muted" for="twenty">Twenties:</label>
-                    <input id="twenty" class="form-control" name="twenty" type="number" value="0" min="0" step="1">
+                <!-- Ten input -->
+                <div class="form-outline mb-4">
+                    <input type="number" id="ten" class="form-control" min="0" step="1"/>
+                    <label class="form-label" for="ten">Tens</label>
                 </div>
 
-                <div class="mb-3 mx-5">
-                    <label class="form-label text-muted" for="ten">Tens:</label>
-                    <input id="ten" class="form-control" name="ten" type="number" value="0" min="0" step="1">
+                <!-- Five input -->
+                <div class="form-outline mb-4">
+                    <input type="number" id="five" class="form-control" min="0" step="1"/>
+                    <label class="form-label" for="five">Fives</label>
                 </div>
 
-                <div class="mb-3 mx-5">
-                    <label class="form-label text-muted" for="five">Fives:</label>
-                    <input id="five" class="form-control" name="five" type="number" value="0" min="0" step="1">
+                <!-- Toonie input -->
+                <div class="form-outline mb-4">
+                    <input type="number" id="toonie" class="form-control" min="0" step="1"/>
+                    <label class="form-label" for="toonie">Toonies</label>
                 </div>
 
-                <div class="mb-3 mx-5">
-                    <label class="form-label text-muted" for="toonie">Toonies:</label>
-                    <input id="toonie" class="form-control" name="toonie" type="number" value="0" min="0" step="1">
+                <!-- Loonie input -->
+                <div class="form-outline mb-4">
+                    <input type="number" id="loonie" class="form-control" min="0" step="1"/>
+                    <label class="form-label" for="loonie">Loonies</label>
                 </div>
 
-                <div class="mb-3 mx-5">
-                    <label class="form-label text-muted" for="loonie">Loonies:</label>
-                    <input id="loonie" class="form-control" name="loonie" type="number" value="0" min="0" step="1">
+                <!-- Quarter input -->
+                <div class="form-outline mb-4">
+                    <input type="number" id="quarter" class="form-control" min="0" step="1"/>
+                    <label class="form-label" for="quarter">Quarters</label>
                 </div>
 
-                <div class="mb-3 mx-5">
-                    <label class="form-label text-muted" for="quarter">Quarters:</label>
-                    <input id="quarter" class="form-control" name="quarter" type="number" value="0" min="0" step="1">
+                <!-- Dime input -->
+                <div class="form-outline mb-4">
+                    <input type="number" id="dime" class="form-control" min="0" step="1"/>
+                    <label class="form-label" for="dime">Dimes</label>
                 </div>
 
-                <div class="mb-3 mx-5">
-                    <label class="form-label text-muted" for="dime">Dimes:</label>
-                    <input id="dime" class="form-control" name="dime" type="number" value="0" min="0" step="1">
+                <!-- Nickel input -->
+                <div class="form-outline mb-4">
+                    <input type="number" id="nickel" class="form-control" min="0" step="1"/>
+                    <label class="form-label" for="nickel">Nickels</label>
                 </div>
 
-                <div class="mb-3 mx-5">
-                    <label class="form-label text-muted" for="nickel">Nickels:</label>
-                    <input id="nickel" class="form-control" name="nickel" type="number" value="0" min="0" step="1">
+                <!-- Reset button -->
+                <div class="pt-1">
+                    <button id="reset" class="btn btn-dark btn-block">Reset</button>
                 </div>
-
-                <div class="mb-3 pt-3 mx-5">
-                    <button class="btn btn-dark btn-block" id="reset">Reset</button>
-                </div>
-            </form>
+              </form>
         </main>
 
     </div>

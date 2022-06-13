@@ -11,8 +11,11 @@ const nickelInput = document.getElementById('nickel');
 const result = document.getElementById('result');
 const reset = document.getElementById('reset');
 
-const inputChangeHandler = (event) => {
-    console.log('changed detected');
+const inputArray = [hundredInput, fiftyInput, twentyInput, tenInput, 
+    fiveInput, toonieInput, loonieInput, quarterInput, 
+    dimeInput, nickelInput]
+
+const inputChangeHandler = () => {
 
     let total = 0.00;
 
@@ -31,29 +34,30 @@ const inputChangeHandler = (event) => {
 }
 
 const resetButtonHandler = (event) => {
+
     event.preventDefault();
-    hundredInput.value = 0;
-    fiftyInput.value = 0;
-    twentyInput.value = 0;
-    tenInput.value = 0;
-    fiveInput.value = 0; 
-    toonieInput.value = 0; 
-    loonieInput.value = 0; 
-    quarterInput.value = 0;
-    dimeInput.value = 0;
-    nickelInput.value = 0;
+    
+    inputArray.map( inputEl => inputEl.value = '');
+
+    // have to focus all inputs before they can be unfocused
+    inputArray.map( inputEl => inputEl.focus() );
+    inputArray.map( inputEl => inputEl.blur() );
+    
     inputChangeHandler();
 }
 
-hundredInput.addEventListener('change', inputChangeHandler);
-fiftyInput.addEventListener('change', inputChangeHandler);
-twentyInput.addEventListener('change', inputChangeHandler);
-tenInput.addEventListener('change', inputChangeHandler);
-fiveInput.addEventListener('change', inputChangeHandler);
-toonieInput.addEventListener('change', inputChangeHandler);
-loonieInput.addEventListener('change', inputChangeHandler);
-quarterInput.addEventListener('change', inputChangeHandler);
-dimeInput.addEventListener('change', inputChangeHandler);
-nickelInput.addEventListener('change', inputChangeHandler);
+const validateInput = (event) => {
+    if (event.target.value.length > 0 && /^[0-9]+$/.test(event.target.value)) {
+        return true;     
+    } else {
+        event.target.value = '';
+    }
+}
+
+inputArray.map((inputEl) => {
+    inputEl.addEventListener('change', inputChangeHandler);
+})
+
+inputArray.map((inputEl) => inputEl.addEventListener('blur', validateInput));
 
 reset.addEventListener('click', resetButtonHandler);
