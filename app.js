@@ -1,24 +1,20 @@
-const hundredInput = document.getElementById('hundred');
-const fiftyInput = document.getElementById('fifty');
-const twentyInput = document.getElementById('twenty');
-const tenInput = document.getElementById('ten');
-const fiveInput = document.getElementById('five');
-const toonieInput = document.getElementById('toonie');
-const loonieInput = document.getElementById('loonie');
-const quarterInput = document.getElementById('quarter');
-const dimeInput = document.getElementById('dime');
-const nickelInput = document.getElementById('nickel');
-const result = document.getElementById('result');
-const reset = document.getElementById('reset');
-
-const inputArray = [hundredInput, fiftyInput, twentyInput, tenInput, 
-    fiveInput, toonieInput, loonieInput, quarterInput, 
-    dimeInput, nickelInput]
-
-const inputChangeHandler = () => {
-
-    let total = 0.00;
-
+var hundredInput = document.getElementById('hundred');
+var fiftyInput = document.getElementById('fifty');
+var twentyInput = document.getElementById('twenty');
+var tenInput = document.getElementById('ten');
+var fiveInput = document.getElementById('five');
+var toonieInput = document.getElementById('toonie');
+var loonieInput = document.getElementById('loonie');
+var quarterInput = document.getElementById('quarter');
+var dimeInput = document.getElementById('dime');
+var nickelInput = document.getElementById('nickel');
+var result = document.getElementById('result');
+var reset = document.getElementById('reset');
+var inputArray = [hundredInput, fiftyInput, twentyInput, tenInput,
+    fiveInput, toonieInput, loonieInput, quarterInput,
+    dimeInput, nickelInput];
+var inputChangeHandler = function () {
+    var total = 0.00;
     total += +hundredInput.value * 100;
     total += +fiftyInput.value * 50;
     total += +twentyInput.value * 20;
@@ -29,35 +25,26 @@ const inputChangeHandler = () => {
     total += +quarterInput.value * 0.25;
     total += +dimeInput.value * 0.1;
     total += +nickelInput.value * 0.05;
-
     result.innerHTML = total.toFixed(2);
-}
-
-const resetButtonHandler = (event) => {
-
+};
+var resetButtonHandler = function (event) {
     event.preventDefault();
-    
-    inputArray.map( inputEl => inputEl.value = '');
-
+    inputArray.map(function (inputEl) { return inputEl.value = ''; });
     // have to focus all inputs before they can be unfocused
-    inputArray.map( inputEl => inputEl.focus() );
-    inputArray.map( inputEl => inputEl.blur() );
-    
+    inputArray.map(function (inputEl) { return inputEl.focus(); });
+    inputArray.map(function (inputEl) { return inputEl.blur(); });
     inputChangeHandler();
-}
-
-const validateInput = (event) => {
+};
+var validateInput = function (event) {
     if (event.target.value.length > 0 && /^[0-9]+$/.test(event.target.value)) {
-        return true;     
-    } else {
+        return true;
+    }
+    else {
         event.target.value = '';
     }
-}
-
-inputArray.map((inputEl) => {
+};
+inputArray.map(function (inputEl) {
     inputEl.addEventListener('change', inputChangeHandler);
-})
-
-inputArray.map((inputEl) => inputEl.addEventListener('blur', validateInput));
-
+});
+inputArray.map(function (inputEl) { return inputEl.addEventListener('blur', validateInput); });
 reset.addEventListener('click', resetButtonHandler);
