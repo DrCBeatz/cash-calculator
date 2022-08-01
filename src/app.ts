@@ -11,7 +11,7 @@ const nickelInput = <HTMLInputElement>document.getElementById('nickel');
 const result = <HTMLInputElement>document.getElementById('result');
 const reset = <HTMLInputElement>document.getElementById('reset');
 
-const inputArray = [hundredInput, fiftyInput, twentyInput, tenInput, 
+const inputArray = [hundredInput,fiftyInput, twentyInput, tenInput, 
     fiveInput, toonieInput, loonieInput, quarterInput, 
     dimeInput, nickelInput]
 
@@ -33,7 +33,7 @@ const inputChangeHandler = () => {
     result.innerHTML = total.toFixed(2);
 }
 
-const resetButtonHandler = (event) => {
+const resetButtonHandler = (event: Event) => {
 
     event.preventDefault();
     
@@ -46,18 +46,18 @@ const resetButtonHandler = (event) => {
     inputChangeHandler();
 }
 
-const validateInput = (event) => {
-    if (event.target.value.length > 0 && /^[0-9]+$/.test(event.target.value)) {
+const validateInput = (event: Event) => {
+    if ((event.target as HTMLInputElement).value.length > 0 && /^[0-9]+$/.test((event.target as HTMLInputElement).value)) {
         return true;     
     } else {
-        event.target.value = '';
+        (event.target as HTMLInputElement).value = '';
     }
 }
 
-inputArray.map((inputEl) => {
+inputArray.map((inputEl: HTMLInputElement) => {
     inputEl.addEventListener('change', inputChangeHandler);
 })
 
-inputArray.map((inputEl) => inputEl.addEventListener('blur', validateInput));
+inputArray.map((inputEl: HTMLInputElement) => inputEl.addEventListener('blur', validateInput));
 
 reset.addEventListener('click', resetButtonHandler);
