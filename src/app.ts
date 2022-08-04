@@ -11,6 +11,8 @@ const nickelInput = <HTMLInputElement>document.getElementById('nickel');
 const result = <HTMLInputElement>document.getElementById('result');
 const reset = <HTMLInputElement>document.getElementById('reset');
 
+console.log('oh yus');
+
 const inputArray = [hundredInput,fiftyInput, twentyInput, tenInput, 
     fiveInput, toonieInput, loonieInput, quarterInput, 
     dimeInput, nickelInput]
