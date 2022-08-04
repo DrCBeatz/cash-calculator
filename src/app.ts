@@ -11,10 +11,17 @@ const nickelInput = <HTMLInputElement>document.getElementById('nickel');
 const result = <HTMLInputElement>document.getElementById('result');
 const reset = <HTMLInputElement>document.getElementById('reset');
 
-
-const inputArray = [hundredInput,fiftyInput, twentyInput, tenInput, 
-    fiveInput, toonieInput, loonieInput, quarterInput, 
-    dimeInput, nickelInput]
+const inputArray: HTMLInputElement[] = [
+    hundredInput,
+    fiftyInput,
+    twentyInput,
+    tenInput, 
+    fiveInput,
+    toonieInput,
+    loonieInput,
+    quarterInput, 
+    dimeInput,
+    nickelInput]
 
 const inputChangeHandler = () => {
 
@@ -52,6 +59,7 @@ const validateInput = (event: Event) => {
         return true;     
     } else {
         (event.target as HTMLInputElement).value = '';
+        return false;
     }
 }
 

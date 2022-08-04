@@ -11,10 +11,18 @@ const dimeInput = document.getElementById('dime');
 const nickelInput = document.getElementById('nickel');
 const result = document.getElementById('result');
 const reset = document.getElementById('reset');
-
-const inputArray = [hundredInput, fiftyInput, twentyInput, tenInput,
-    fiveInput, toonieInput, loonieInput, quarterInput,
-    dimeInput, nickelInput];
+const inputArray = [
+    hundredInput,
+    fiftyInput,
+    twentyInput,
+    tenInput,
+    fiveInput,
+    toonieInput,
+    loonieInput,
+    quarterInput,
+    dimeInput,
+    nickelInput
+];
 const inputChangeHandler = () => {
     let total = 0.00;
     total += +hundredInput.value * 100;
@@ -42,6 +50,7 @@ const validateInput = (event) => {
     }
     else {
         event.target.value = '';
+        return false;
     }
 };
 inputArray.map((inputEl) => {
