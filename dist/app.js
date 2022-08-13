@@ -1,4 +1,4 @@
-import { validateInput } from './util.js';
+import { validateInput, resetButtonHandler } from './util.js';
 const hundredInput = document.getElementById('hundred');
 const fiftyInput = document.getElementById('fifty');
 const twentyInput = document.getElementById('twenty');
@@ -37,16 +37,13 @@ const inputChangeHandler = () => {
     total += +nickelInput.value * 0.05;
     result.innerHTML = total.toFixed(2);
 };
-const resetButtonHandler = (event) => {
-    event.preventDefault();
-    inputArray.map(inputEl => inputEl.value = '');
-    inputArray.map(inputEl => inputEl.focus());
-    inputArray.map(inputEl => inputEl.blur());
+const resetHandler = (event) => {
+    resetButtonHandler(event, inputArray);
     inputChangeHandler();
 };
 inputArray.map((inputEl) => {
     inputEl.addEventListener('change', inputChangeHandler);
 });
 inputArray.map((inputEl) => inputEl.addEventListener('blur', validateInput));
-reset.addEventListener('click', resetButtonHandler);
+reset.addEventListener('click', resetHandler);
 //# sourceMappingURL=app.js.map

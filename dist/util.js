@@ -1,5 +1,4 @@
 export const validateInput = (event) => {
-    console.log('validating input...');
     if (event.target.value.length > 0 && /^[0-9]+$/.test(event.target.value)) {
         return true;
     }
@@ -7,5 +6,11 @@ export const validateInput = (event) => {
         event.target.value = '';
         return false;
     }
+};
+export const resetButtonHandler = (event, inputArr) => {
+    event.preventDefault();
+    inputArr.map(inputEl => inputEl.value = '');
+    inputArr.map(inputEl => inputEl.focus());
+    inputArr.map(inputEl => inputEl.blur());
 };
 //# sourceMappingURL=util.js.map

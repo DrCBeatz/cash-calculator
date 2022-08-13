@@ -1,4 +1,4 @@
-import { validateInput } from './util.js';
+import { validateInput, resetButtonHandler } from './util.js';
 
 const hundredInput = <HTMLInputElement>document.getElementById('hundred');
 const fiftyInput = <HTMLInputElement>document.getElementById('fifty');
@@ -43,16 +43,8 @@ const inputChangeHandler = () => {
     result.innerHTML = total.toFixed(2);
 }
 
-const resetButtonHandler = (event: Event) => {
-
-    event.preventDefault();
-    
-    inputArray.map( inputEl => inputEl.value = '');
-
-    // have to focus all inputs before they can be unfocused
-    inputArray.map( inputEl => inputEl.focus() );
-    inputArray.map( inputEl => inputEl.blur() );
-    
+const resetHandler = (event: Event) => {
+    resetButtonHandler(event, inputArray)
     inputChangeHandler();
 }
 
@@ -62,4 +54,4 @@ inputArray.map((inputEl: HTMLInputElement) => {
 
 inputArray.map((inputEl: HTMLInputElement) => inputEl.addEventListener('blur', validateInput));
 
-reset.addEventListener('click', resetButtonHandler);
+reset.addEventListener('click', resetHandler);
