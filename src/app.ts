@@ -1,3 +1,5 @@
+import { validateInput } from './util.js';
+
 const hundredInput = <HTMLInputElement>document.getElementById('hundred');
 const fiftyInput = <HTMLInputElement>document.getElementById('fifty');
 const twentyInput = <HTMLInputElement>document.getElementById('twenty');
@@ -52,15 +54,6 @@ const resetButtonHandler = (event: Event) => {
     inputArray.map( inputEl => inputEl.blur() );
     
     inputChangeHandler();
-}
-
-const validateInput = (event: Event) => {
-    if ((event.target as HTMLInputElement).value.length > 0 && /^[0-9]+$/.test((event.target as HTMLInputElement).value)) {
-        return true;     
-    } else {
-        (event.target as HTMLInputElement).value = '';
-        return false;
-    }
 }
 
 inputArray.map((inputEl: HTMLInputElement) => {

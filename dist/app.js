@@ -1,4 +1,4 @@
-"use strict";
+import { validateInput } from './util.js';
 const hundredInput = document.getElementById('hundred');
 const fiftyInput = document.getElementById('fifty');
 const twentyInput = document.getElementById('twenty');
@@ -43,15 +43,6 @@ const resetButtonHandler = (event) => {
     inputArray.map(inputEl => inputEl.focus());
     inputArray.map(inputEl => inputEl.blur());
     inputChangeHandler();
-};
-const validateInput = (event) => {
-    if (event.target.value.length > 0 && /^[0-9]+$/.test(event.target.value)) {
-        return true;
-    }
-    else {
-        event.target.value = '';
-        return false;
-    }
 };
 inputArray.map((inputEl) => {
     inputEl.addEventListener('change', inputChangeHandler);
