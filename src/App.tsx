@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+
 import { MDBInput, MDBBtn } from "mdb-react-ui-kit";
+import Header from "./Components/Header/Header";
 
 const App = () => {
   const [total, setTotal] = useState((0).toFixed(2));
@@ -14,17 +16,23 @@ const App = () => {
   const [dimeInput, setDimeInput] = useState<number | string>("");
   const [nickelInput, setNickelInput] = useState<number | string>("");
 
+  const setInputsArray = [
+    setHundredInput,
+    setFiftyInput,
+    setTwentyInput,
+    setTenInput,
+    setFiveInput,
+    setToonieInput,
+    setLoonieInput,
+    setQuarterInput,
+    setDimeInput,
+    setNickelInput,
+  ];
+
   const resetHandler = () => {
-    setHundredInput(() => "");
-    setFiftyInput(() => "");
-    setTwentyInput(() => "");
-    setTenInput(() => "");
-    setFiveInput(() => "");
-    setToonieInput(() => "");
-    setLoonieInput(() => "");
-    setQuarterInput(() => "");
-    setDimeInput(() => "");
-    setNickelInput(() => "");
+    for (const item of setInputsArray) {
+      item(() => "");
+    };
     setTotal(() => (0).toFixed(2));
   };
 
@@ -32,7 +40,11 @@ const App = () => {
     const amount = 100;
     setHundredInput((hundredInput) => +hundredInput * 0 + +event.target.value);
     setTotal((prevTotal) =>
-      (+prevTotal - +hundredInput * amount + +event.target.value * amount).toFixed(2)
+      (
+        +prevTotal -
+        +hundredInput * amount +
+        +event.target.value * amount
+      ).toFixed(2)
     );
   };
 
@@ -40,7 +52,11 @@ const App = () => {
     const amount = 50;
     setFiftyInput((fiftyInput) => +fiftyInput * 0 + +event.target.value);
     setTotal((prevTotal) =>
-      (+prevTotal - +fiftyInput * amount + +event.target.value * amount).toFixed(2)
+      (
+        +prevTotal -
+        +fiftyInput * amount +
+        +event.target.value * amount
+      ).toFixed(2)
     );
   };
 
@@ -48,7 +64,11 @@ const App = () => {
     const amount = 20;
     setTwentyInput((twentyInput) => +twentyInput * 0 + +event.target.value);
     setTotal((prevTotal) =>
-      (+prevTotal - +twentyInput * amount + +event.target.value * amount).toFixed(2)
+      (
+        +prevTotal -
+        +twentyInput * amount +
+        +event.target.value * amount
+      ).toFixed(2)
     );
   };
 
@@ -56,7 +76,9 @@ const App = () => {
     const amount = 10;
     setTenInput((tenInput) => +tenInput * 0 + +event.target.value);
     setTotal((prevTotal) =>
-      (+prevTotal - +tenInput * amount + +event.target.value * amount).toFixed(2)
+      (+prevTotal - +tenInput * amount + +event.target.value * amount).toFixed(
+        2
+      )
     );
   };
 
@@ -64,7 +86,9 @@ const App = () => {
     const amount = 5;
     setFiveInput((fiveInput) => +fiveInput * 0 + +event.target.value);
     setTotal((prevTotal) =>
-      (+prevTotal - +fiveInput * amount + +event.target.value * amount).toFixed(2)
+      (+prevTotal - +fiveInput * amount + +event.target.value * amount).toFixed(
+        2
+      )
     );
   };
 
@@ -72,7 +96,11 @@ const App = () => {
     const amount = 2;
     setToonieInput((toonieInput) => +toonieInput * 0 + +event.target.value);
     setTotal((prevTotal) =>
-      (+prevTotal - +toonieInput * amount + +event.target.value * amount).toFixed(2)
+      (
+        +prevTotal -
+        +toonieInput * amount +
+        +event.target.value * amount
+      ).toFixed(2)
     );
   };
 
@@ -80,7 +108,11 @@ const App = () => {
     const amount = 1;
     setLoonieInput((loonieInput) => +loonieInput * 0 + +event.target.value);
     setTotal((prevTotal) =>
-      (+prevTotal - +loonieInput * amount + +event.target.value * amount).toFixed(2)
+      (
+        +prevTotal -
+        +loonieInput * amount +
+        +event.target.value * amount
+      ).toFixed(2)
     );
   };
 
@@ -88,17 +120,21 @@ const App = () => {
     const amount = 0.25;
     setQuarterInput((quarterInput) => +quarterInput * 0 + +event.target.value);
     setTotal((prevTotal) =>
-      (+prevTotal - +quarterInput * amount + +event.target.value * amount).toFixed(
-        2
-      )
+      (
+        +prevTotal -
+        +quarterInput * amount +
+        +event.target.value * amount
+      ).toFixed(2)
     );
   };
 
   const handleDimeChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const amount = 0.10;
+    const amount = 0.1;
     setDimeInput((dimeInput) => +dimeInput * 0 + +event.target.value);
     setTotal((prevTotal) =>
-      (+prevTotal - +dimeInput * amount + +event.target.value * amount).toFixed(2)
+      (+prevTotal - +dimeInput * amount + +event.target.value * amount).toFixed(
+        2
+      )
     );
   };
 
@@ -106,21 +142,17 @@ const App = () => {
     const amount = 0.05;
     setNickelInput((nickelInput) => +nickelInput * 0 + +event.target.value);
     setTotal((prevTotal) =>
-      (+prevTotal - +nickelInput * amount + +event.target.value * amount).toFixed(2)
+      (
+        +prevTotal -
+        +nickelInput * amount +
+        +event.target.value * amount
+      ).toFixed(2)
     );
   };
 
   return (
     <div className="container">
-      <header>
-        <h1 className="text-center mt-3">
-          <strong>Cash Calculator</strong>
-        </h1>
-        <hr />
-        <h3 className="text-center">
-          <strong>Total:</strong> ${total}
-        </h3>
-      </header>
+      <Header title="Cash Calculator" total={total} />
       <main>
         <form className="mx-4 mx-lg-5">
           <MDBInput
@@ -225,7 +257,7 @@ const App = () => {
           />
           <MDBBtn
             type="button"
-            className="btn btn-dark btn-block"
+            className="btn btn-dark btn-block mb-4"
             onClick={resetHandler}
           >
             Reset
